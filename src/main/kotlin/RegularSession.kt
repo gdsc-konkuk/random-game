@@ -15,7 +15,7 @@ val MEMBER = listOf(
 
 // 10차 정기세션 발표자
 // 정원준, 김한주
-val CURRENT_WEEK_SPEAKERS = listOf("정원준", "김한주")
+val PREVIOUS_SPEAKERS = listOf("정원준", "김한주", "이현우", "김현재", "이수지", "정성우")
 
 // 지각자
 val LATE_MEMBER = listOf<String>("최상")
@@ -26,7 +26,7 @@ val ABSENT_MEMBER = listOf<String>("유가은")
 fun main() {
     runBlocking {
         val shuffled = MEMBER
-            .filterNot { it in CURRENT_WEEK_SPEAKERS }
+            .filterNot { it in PREVIOUS_SPEAKERS }
             .map { member ->
                 val count = when (member) {
                     in LATE_MEMBER -> 2
