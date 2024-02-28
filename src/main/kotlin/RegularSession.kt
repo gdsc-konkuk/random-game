@@ -12,9 +12,14 @@ val MEMBER = listOf(
     "구서정", "박지원", "김윤진", "김수연", "유가은", "이하윤", "이승범", "김채원", "김채린"
 )
 
+// 10차 정기세션 발표자
+// 정원준, 김한주
+val CURRENT_WEEK_SPEAKERS = listOf("정원준", "김한주")
+
 fun main() {
     runBlocking {
         val shuffled = MEMBER
+            .filterNot { it in CURRENT_WEEK_SPEAKERS }
             .shuffled(Random(Clock.System.now().toEpochMilliseconds()))
             .take(2)
         println("다음 세션 발표자는")
